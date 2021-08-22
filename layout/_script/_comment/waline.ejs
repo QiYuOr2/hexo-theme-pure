@@ -1,0 +1,14 @@
+<% if (typeof(script) !== 'undefined' && script) { %>
+<script src="//cdn.jsdelivr.net/npm/@waline/client"></script>
+<script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = '<%= theme.comment.valine.meta %>';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  Waline({
+    el: '#waline',
+    serverURL: <%= theme.comment.waline.serverURL %>,
+  });
+</script>
+<% } %>

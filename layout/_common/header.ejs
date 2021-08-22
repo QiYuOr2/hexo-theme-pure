@@ -25,11 +25,12 @@
         <% for (var i in theme.menu){ %>
         <% var itemName = i.toLowerCase(); %>
         <li class="menu-item menu-item-<%= itemName %>">
-          <a href="<%- url_for(theme.menu[i]) %>">
+          <a href="<%- url_for(theme.menu[i].path || theme.menu[i]) %>">
             <% if(theme.menu_icons.enable) { %>
             <i class="icon <%= theme.menu_icons[itemName] %>"></i>
             <% } %>
-            <span class="menu-title"><%= __('menu.'+i) %></span>
+            <!-- 判断是否配置了目录标题，如果没有配置就使用默认标题 -->
+            <span class="menu-title"><%= theme.menu[i].title || __('menu.'+i) %></span>
           </a>
         </li>
         <% } %>

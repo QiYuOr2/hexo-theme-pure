@@ -16,6 +16,9 @@
            
     <% } else if (theme.comment.type === 'valine') { %>
       <div id="vcomments"></div>
-    <% } %>
+    <% } else if (theme.comment.type === 'waline') { %>
+      <div id="waline"></div>
+    <% } else { %> 
+    <% } %> 
   </section>
 <% } %>

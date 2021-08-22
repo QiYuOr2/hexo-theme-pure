@@ -1,7 +1,13 @@
 <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
   <div class="slimContent">
-    <% theme.widgets.forEach(function(widget){ %>
-      <%- partial('_widget/' + widget) %>
-    <% }) %>
+    <% if (page.layout === 'post') { %> 
+      <% theme.post_widgets.forEach((widget) => { %>
+        <%- partial('_widget/' + widget, { post: page, index: false }) %>
+      <% }) %> 
+    <% } else { %> 
+      <% theme.widgets.forEach(function(widget){ %>
+        <%- partial('_widget/' + widget, { post: page, index: true }) %>
+      <% }) %>
+    <% } %> 
   </div>
 </aside>
